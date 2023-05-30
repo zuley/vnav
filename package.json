@@ -7,7 +7,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "commit": "git-cz -a"
+    "commit": "git-cz -a",
+    "release": "release-it"
   },
   "devDependencies": {
     "@types/node": "^18",
@@ -18,6 +19,28 @@
     "@huntersofbook/naive-ui-nuxt": "^1.0.0",
     "@nuxtjs/tailwindcss": "^6.7.0",
     "@pinia/nuxt": "^0.4.11",
-    "git-cz": "^4.9.0"
+    "@release-it/conventional-changelog": "^5.1.1",
+    "git-cz": "^4.9.0",
+    "release-it": "^15.10.3"
+  },
+  "release-it": {
+    "github": {
+      "release": false
+    },
+    "git": {
+      "commitMessage": "release: v${version}"
+    },
+    "npm": {
+      "publish": false
+    },
+    "hooks": {
+      "after:bump": "echo 更新版本成功"
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular",
+        "infile": "CHANGELOG.md"
+      }
+    }
   }
 }
