@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@css-render/vue3-ssr": "^0.15.12",
+    "@huntersofbook/naive-ui-nuxt": "^1.0.0",
     "@nuxtjs/tailwindcss": "^6.7.0",
-    "@pinia/nuxt": "^0.4.11",
-    "naive-ui": "^2.34.4"
+    "@pinia/nuxt": "^0.4.11"
   }
 }

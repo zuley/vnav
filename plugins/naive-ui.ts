@@ -2,37 +2,12 @@ import { setup } from '@css-render/vue3-ssr'
 import { defineNuxtPlugin } from '#app'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  if (process.server) {
-    const { collect } = setup(nuxtApp.vueApp)
-    const originalRenderMeta = nuxtApp.ssrContext?.renderMeta
-    // @ts-ignore
-    nuxtApp.ssrContext = nuxtApp.ssrContext || {}
-    // @ts-ignore
-    nuxtApp.ssrContext.renderMeta = () => {
-      if (!originalRenderMeta) {
-        return {
-          headTags: collect()
-        }
-      }
-      const originalMeta = originalRenderMeta()
-      if ('then' in originalMeta) {
-        return originalMeta.then((resolvedOriginalMeta) => {
-          return {
-            ...resolvedOriginalMeta,
-            headTags: resolvedOriginalMeta['headTags'] + collect()
-          }
-        })
-      } else {
-        return {
-          ...originalMeta,
-          headTags: originalMeta['headTags'] + collect()
-        }
-      }
-    }
-  }
   nuxtApp.hook('app:mounted', () => {
-    const meta = document.createElement('meta')
-    meta.name = 'naive-ui-style'
-    document.head.appendChild(meta)
+    const elementToMove = document.head.querySelector('[data-vite-dev-id$="tailwind.css"]');
+    const firstChild = document.head.firstChild;
+    
+    if (elementToMove && firstChild) {
+      document.head.insertBefore(elementToMove, firstChild);
+    }
   })
 })

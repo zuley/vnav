@@ -4,6 +4,9 @@ dependencies:
   '@css-render/vue3-ssr':
     specifier: ^0.15.12
     version: registry.npmmirror.com/@css-render/vue3-ssr@0.15.12(vue@3.3.4)
+  '@huntersofbook/naive-ui-nuxt':
+    specifier: ^1.0.0
+    version: registry.npmmirror.com/@huntersofbook/naive-ui-nuxt@1.0.0(vue@3.3.4)
   '@nuxtjs/tailwindcss':
     specifier: ^6.7.0
     version: registry.npmmirror.com/@nuxtjs/tailwindcss@6.7.0(webpack@5.84.1)
@@ -720,6 +723,25 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  registry.npmmirror.com/@huntersofbook/naive-ui-nuxt@1.0.0(vue@3.3.4):
+    resolution: {integrity: sha512-pAeTPjMWdWbhHHVa+Ap3vo+7WGqE/zV8R3swzs+7Nyxxv47bnf40ilKVzsH6lotMTHtjBkwsNHNL2AikPMTaQA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@huntersofbook/naive-ui-nuxt/-/naive-ui-nuxt-1.0.0.tgz}
+    id: registry.npmmirror.com/@huntersofbook/naive-ui-nuxt/1.0.0
+    name: '@huntersofbook/naive-ui-nuxt'
+    version: 1.0.0
+    engines: {node: '>=16', pnpm: '>=8'}
+    peerDependencies:
+      vue: '=>3.3.0'
+    dependencies:
+      '@css-render/vue3-ssr': registry.npmmirror.com/@css-render/vue3-ssr@0.15.12(vue@3.3.4)
+      '@nuxt/kit': registry.npmmirror.com/@nuxt/kit@3.5.1
+      defu: registry.npmmirror.com/defu@6.1.2
+      naive-ui: registry.npmmirror.com/naive-ui@2.34.4(vue@3.3.4)
+      vue: registry.npmmirror.com/vue@3.3.4
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: false
 
   registry.npmmirror.com/@ioredis/commands@1.2.0:
     resolution: {integrity: sha512-Sx1pU8EM64o2BrqNpEO1CNLtKQwyhuXuqyfH7oGKCk+1a33d2r5saW8zNwm3j6BTExtjrv2BxTgzzkMwts6vGg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@ioredis/commands/-/commands-1.2.0.tgz}
