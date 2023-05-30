@@ -6,7 +6,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "commit": "git-cz -a"
   },
   "devDependencies": {
     "@types/node": "^18",
@@ -16,6 +17,7 @@
     "@css-render/vue3-ssr": "^0.15.12",
     "@huntersofbook/naive-ui-nuxt": "^1.0.0",
     "@nuxtjs/tailwindcss": "^6.7.0",
-    "@pinia/nuxt": "^0.4.11"
+    "@pinia/nuxt": "^0.4.11",
+    "git-cz": "^4.9.0"
   }
 }

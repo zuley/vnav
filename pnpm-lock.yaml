@@ -13,9 +13,9 @@ dependencies:
   '@pinia/nuxt':
     specifier: ^0.4.11
     version: registry.npmmirror.com/@pinia/nuxt@0.4.11(vue@3.3.4)
-  naive-ui:
-    specifier: ^2.34.4
-    version: registry.npmmirror.com/naive-ui@2.34.4(vue@3.3.4)
+  git-cz:
+    specifier: ^4.9.0
+    version: registry.npmmirror.com/git-cz@4.9.0
 
 devDependencies:
   '@types/node':
@@ -3447,6 +3447,13 @@ packages:
     version: 2.0.0
     engines: {node: '>=4'}
     dev: true
+
+  registry.npmmirror.com/git-cz@4.9.0:
+    resolution: {integrity: sha512-cSRL8IIOXU7UFLdbziCYqg8f8InwLwqHezkiRHNSph7oZqGv0togId1kMTfKil6gzK0VaSXeVBb4oDl0fQCHiw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/git-cz/-/git-cz-4.9.0.tgz}
+    name: git-cz
+    version: 4.9.0
+    hasBin: true
+    dev: false
 
   registry.npmmirror.com/git-up@7.0.0:
     resolution: {integrity: sha512-ONdIrbBCFusq1Oy0sC71F5azx8bVkvtZtMJAsv+a6lz5YAmbNnLD6HAB4gptHZVLPR8S2/kVN6Gab7lryq5+lQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/git-up/-/git-up-7.0.0.tgz}
