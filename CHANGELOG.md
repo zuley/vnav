@@ -1,5 +1,12 @@
 
 
+# [0.2.0](https://github.com/zuley/vnav/compare/0.1.0...0.2.0) (2023-06-01)
+
+
+### Features
+
+* 🎸 添加本地开发服务 ([79943f5](https://github.com/zuley/vnav/commit/79943f57c09e2594ddd7fbbf70b01a2ced962c59))
+
 # 0.1.0 (2023-05-30)
 
 
