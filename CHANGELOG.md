@@ -1,5 +1,12 @@
 
 
+# [0.3.0](https://github.com/zuley/vnav/compare/0.2.0...0.3.0) (2023-06-05)
+
+
+### Features
+
+* 🎸 添加接口 ([aedf7f0](https://github.com/zuley/vnav/commit/aedf7f0edc96d369c4b2ac18ca9df8af71592e48))
+
 # [0.2.0](https://github.com/zuley/vnav/compare/0.1.0...0.2.0) (2023-06-01)
 
 
