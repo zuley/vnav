@@ -6,13 +6,13 @@ type Option = {
 }
 
 type MyCollections = {
-  options: Option
+  option: Option
 }
 
 const cms = new Directus<MyCollections>('http://101.33.224.203:8055');
 
 export const useOptionCms = () => {
-  return cms.items('options')
+  return cms.items('option')
 }
 
 export default cms;
