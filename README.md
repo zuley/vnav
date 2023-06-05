@@ -1,42 +1,12 @@
-# Nuxt 3 Minimal Starter
+# vnav
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
-
+## 开发
 ```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
+# 安装依赖
 pnpm install
+# 启动本地开发
+pnpm dev
+# 启动本地服务器环境
+docker-compose up -d
 ```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+启动本地服务器环境需要先创  vnav 数据库
