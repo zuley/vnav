@@ -1,4 +1,5 @@
 import {Directus, ID} from '@directus/sdk';
+import {Text} from "domhandler";
 
 export type Option = {
   id: ID
@@ -14,14 +15,40 @@ export type Option = {
   value_richText: string
 }
 
+export type MenuPosition = {
+  id: ID
+  name: string
+  code: string
+}
+
+export type Menu = {
+  id: ID
+  status: string
+  name: string
+  target: '_blank' | '_self'
+  position: MenuPosition
+  parent: Menu
+  url: string
+}
+
 type MyCollections = {
   option: Option
+  menu: Menu
+  menu_position: MenuPosition
 }
 
 const cms = new Directus<MyCollections>('http://101.33.224.203:8055');
 
 export const useOptionCms = () => {
   return cms.items('option')
+}
+
+export const useMenuCms = () => {
+  return cms.items('menu')
+}
+
+export const useMenuPosition = () => {
+  return cms.items('menu_position')
 }
 export default cms;
 
