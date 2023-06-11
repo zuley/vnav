@@ -31,10 +31,46 @@ export type Menu = {
   url: string
 }
 
+export type Term = {
+  id: ID
+  name: string
+  slug: string
+  icon?: string
+  desc?: string
+  parent?: Term
+}
+
+export type Post = {
+  id: ID
+  status?: string
+  title: string
+  type: string
+  slug: string
+  cover: string
+  desc: string
+  comment_status: boolean
+  password: string
+  content_artivle?: string
+  content_photo?: string
+  tags: string
+  term: Term[]
+  postmate: Postmate[]
+}
+
+export type Postmate = {
+  id: ID
+  post_id: Post
+  key: string
+  value: string
+}
+
 type MyCollections = {
   option: Option
   menu: Menu
   menu_position: MenuPosition
+  term: Term
+  post: Post
+  postmate: Postmate
 }
 
 const cms = new Directus<MyCollections>('http://101.33.224.203:8055');
@@ -49,6 +85,10 @@ export const useMenuCms = () => {
 
 export const useMenuPosition = () => {
   return cms.items('menu_position')
+}
+
+export const useTermCms = () => {
+  return cms.items('term')
 }
 export default cms;
 

@@ -5,5 +5,9 @@ type MenuCode = 'TOP'
 
 
 export default function (code: string) {
-
+  return useFetch('/api/menu', {
+    query: {
+      code
+    }
+  })
 }
