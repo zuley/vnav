@@ -1,5 +1,17 @@
 
 
+# [0.4.0](https://github.com/zuley/vnav/compare/0.1.0...0.4.0) (2023-06-14)
+
+
+### Features
+
+* 🎸 添加 示例 ([9e84195](https://github.com/zuley/vnav/commit/9e8419554067f4c5a3de26542f7e709956a791c0))
+* 🎸 添加接口 ([bf542f4](https://github.com/zuley/vnav/commit/bf542f46e2de86aba8a151a0c0699b01ef512bc2))
+* 🎸 添加接口 ([aedf7f0](https://github.com/zuley/vnav/commit/aedf7f0edc96d369c4b2ac18ca9df8af71592e48))
+* 🎸 添加本地开发服务 ([79943f5](https://github.com/zuley/vnav/commit/79943f57c09e2594ddd7fbbf70b01a2ced962c59))
+* 🎸 添加组件 ([333aa58](https://github.com/zuley/vnav/commit/333aa587d8d6a12d257dc12245dbc82f098cd13b))
+* 🎸 添加获取菜单接口 ([9aaa2d0](https://github.com/zuley/vnav/commit/9aaa2d0a53b0b7120e1e6d8da4b832e12102de63))
+
 # [0.3.0](https://github.com/zuley/vnav/compare/0.2.0...0.3.0) (2023-06-05)
 
 
