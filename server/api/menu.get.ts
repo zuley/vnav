@@ -1,4 +1,4 @@
-import {useOptionCms, Option, useThumbnail} from "../../composables/useCms";
+import {Menu} from "../../composables/useCms";
 import {useMenuCms} from "../../composables/useCms";
 export default defineEventHandler(async (e) => {
   try {
@@ -14,7 +14,7 @@ export default defineEventHandler(async (e) => {
     })
     return {
       code: '0',
-      data: Menus.data
+      data: Menus.data || []
     }
   } catch (error) {
     return sendError(e, createError({
