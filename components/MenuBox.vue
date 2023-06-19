@@ -7,9 +7,14 @@ const menuList = menuRes.value!.data
 </script>
 
 <template>
-<ul>
-  <li v-for="item in menuList as Menu[]">{{ item.name }}</li>
-</ul>
+<div class="leading-9">
+  <NuxtLink
+    class="mr-8"
+    v-for="item in menuList"
+    :to="item.url"
+    :target="item.target"
+  >{{ item.name }}</NuxtLink>
+</div>
 </template>
 
 <style scoped>
