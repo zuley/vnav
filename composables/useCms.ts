@@ -87,6 +87,10 @@ export const useMenuPosition = () => {
   return cms.items('menu_position')
 }
 
+export const usePostCms = () => {
+  return cms.items('post')
+}
+
 export const useTermCms = () => {
   return cms.items('term')
 }

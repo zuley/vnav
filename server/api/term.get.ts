@@ -6,7 +6,7 @@ export default defineEventHandler(async (e) => {
     })
     return {
       code: '0',
-      data: Terms.data
+      data: Terms.data || []
     }
   } catch (error) {
     console.log('error', error)

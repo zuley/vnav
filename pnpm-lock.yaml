@@ -12,6 +12,7 @@ specifiers:
   nuxt: ^3.5.1
   nuxt-directus: ^5.3.0
   release-it: ^15.10.3
+  superjson: ^1.12.3
 
 dependencies:
   '@css-render/vue3-ssr': 0.15.12
@@ -21,6 +22,7 @@ dependencies:
   '@release-it/conventional-changelog': 5.1.1_release-it@15.11.0
   git-cz: 4.9.0
   release-it: 15.11.0
+  superjson: 1.12.3
 
 devDependencies:
   '@directus/sdk': 10.3.3
@@ -2470,6 +2472,13 @@ packages:
       keygrip: 1.1.0
     dev: false
 
+  /copy-anything/3.0.5:
+    resolution: {integrity: sha512-yCEafptTtb4bk7GLEQoM8KVJpxAfdBJYaXyzQEgQQQgYrZiDp8SJmGKlYza6CYjEDNstAdNdKA3UuoULlEbS6w==}
+    engines: {node: '>=12.13'}
+    dependencies:
+      is-what: 4.1.15
+    dev: false
+
   /core-util-is/1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
 
@@ -4290,6 +4299,11 @@ packages:
     resolution: {integrity: sha512-qctsuLZmIQ0+vSSMfoVvyFe2+GSEvnmZ2ezTup1SBse9+twCCeial6EEi3Nc2KFcf6+qz2FBPnjXsk8xhKSaPQ==}
     dependencies:
       call-bind: 1.0.2
+    dev: false
+
+  /is-what/4.1.15:
+    resolution: {integrity: sha512-uKua1wfy3Yt+YqsD6mTUEa2zSi3G1oPlqTflgaPJ7z63vUGN5pxFpnQfeSLMFnJDEsdvOtkp1rUWkYjB4YfhgA==}
+    engines: {node: '>=12.13'}
     dev: false
 
   /is-wsl/2.2.0:
@@ -6979,6 +6993,13 @@ packages:
       mz: 2.7.0
       pirates: 4.0.5
       ts-interface-checker: 0.1.13
+    dev: false
+
+  /superjson/1.12.3:
+    resolution: {integrity: sha512-0j+U70KUtP8+roVPbwfqkyQI7lBt7ETnuA7KXbTDX3mCKiD/4fXs2ldKSMdt0MCfpTwiMxo20yFU3vu6ewETpQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      copy-anything: 3.0.5
     dev: false
 
   /supports-color/5.5.0:
