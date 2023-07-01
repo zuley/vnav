@@ -1,4 +1,4 @@
-import {Directus, ID} from '@directus/sdk';
+import {Directus, ID, RelationItem} from '@directus/sdk';
 import {Text} from "domhandler";
 
 export type Option = {
@@ -46,14 +46,14 @@ export type Post = {
   title: string
   type: string
   slug: string
-  cover: string
+  cover: RelationItem<{ id: string }>
   desc: string
   comment_status: boolean
   password: string
   content_artivle?: string
   content_photo?: string
   tags: string
-  term: Term[]
+  term: RelationItem<Term>[]
   postmate: Postmate[]
 }
 
