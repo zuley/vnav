@@ -5,16 +5,16 @@ const message = useMessage()
 const router = useRouter()
 const route = useRoute()
 
-const keyword = ref(route.query.k || '')
+const keyword = ref(route.query.keyword || '')
 const handleSearch = () => {
   if (typeof keyword.value === 'string' && keyword.value.trim() === '') {
-    message.error('搜索输入不能为空！')
+    router.push({ path: route.path })
     return
   }
   router.push({
-    path: '/search',
+    path: route.path,
     query: {
-      k: keyword.value
+      keyword: keyword.value
     }
   })
 }

@@ -5,9 +5,15 @@ import {Post, useThumbnail} from "~/composables/useCms";
 const porps = defineProps<{
   term?: string
 }>()
-const { page, list, allPages } = await usePost({
+
+const route = useRoute()
+const { page, list, allPages, keyword } = await usePost({
   termSlug: porps.term,
-  page: 1
+  page: 1,
+  keyword: route.query.keyword as string || ''
+})
+watch(() => route.query, () => {
+  keyword.value = route.query.keyword as string
 })
 </script>
 

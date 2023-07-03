@@ -1,8 +1,7 @@
 import {useThumbnail, usePostCms} from "../../../composables/useCms";
-import superjson from "superjson";
 export default defineEventHandler(async (e) => {
   try {
-    let { termSlug, limit = 20, page = 1 } = getQuery(e)
+    let { termSlug, limit = 20, page = 1, keyword = '' } = getQuery(e)
     // 查询参数
     const queryObj: any = {
       fields: '*.*',
@@ -20,6 +19,10 @@ export default defineEventHandler(async (e) => {
           }
         }
       }
+    }
+    // 如果有搜索参数则组装 搜索查询 参数
+    if (keyword) {
+      queryObj.search = keyword
     }
     const Posts = await usePostCms().readByQuery(queryObj)
     return {
