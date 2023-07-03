@@ -5,7 +5,9 @@ useState('options', () => res.data.value!.data)
 </script>
 
 <template>
-  <NuxtLayout class="bg-stone-100 min-h-screen">
-    <NuxtPage />
-  </NuxtLayout>
+  <n-message-provider>
+    <NuxtLayout class="bg-stone-100 min-h-screen">
+      <NuxtPage />
+    </NuxtLayout>
+  </n-message-provider>
 </template>
