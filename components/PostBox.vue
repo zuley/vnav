@@ -20,10 +20,12 @@ watch(() => route.query, () => {
 <template>
   <template v-if="list.length > 0">
     <!-- 文章 -->
-    <div class="container mx-auto grid grid-cols-6 gap-4">
+    <div class="container mx-auto grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 gap-4">
       <div class="bg-white rounded-lg p-3 text-center" v-for="item in (list as Post[])" :key="item.id">
-        <div class="h-0 pb-[50%] bg-no-repeat bg-center bg-contain" :style="{ backgroundImage: `url(${useThumbnail(item.cover.id)})` }"></div>
-        <h2 class="text-xl leading-10">{{ item.title }}</h2>
+        <nuxt-link :to="`/post/${item.slug}`" class="block h-0 pb-[50%] bg-no-repeat bg-center bg-contain hover:rotate-2 transition-all" :style="{ backgroundImage: `url(${useThumbnail(item.cover.id)})` }"></nuxt-link>
+        <h2 class="text-xl leading-10">
+          <nuxt-link to="/">{{ item.title }}</nuxt-link>
+        </h2>
         <p class="text-gray-400 text-xs h-8">{{ item.desc }}</p>
       </div>
     </div>
