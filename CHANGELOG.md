@@ -1,5 +1,12 @@
 
 
+# [0.6.0](https://github.com/zuley/vnav/compare/0.5.0...0.6.0) (2023-07-08)
+
+
+### Features
+
+* 🎸 增加文章详情 ([8047585](https://github.com/zuley/vnav/commit/80475850ab65014d8d4d79f4bfd32acb27652fba))
+
 # [0.5.0](https://github.com/zuley/vnav/compare/0.4.0...0.5.0) (2023-06-19)
 
 
