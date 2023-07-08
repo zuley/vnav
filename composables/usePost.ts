@@ -24,3 +24,13 @@ export default async function (params: {
   const allPages = computed(() => Math.ceil(count.value / limit.value))
   return { res, termSlug, page, limit, keyword, list, count, allPages }
 }
+
+export async function usePostDetail (slug: string) {
+  const res = await useFetch('/api/post/detail', {
+    params: {
+      slug
+    }
+  })
+  const post = computed(() => res.data.value!.data)
+  return { res, post }
+}
