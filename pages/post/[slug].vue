@@ -1,17 +1,23 @@
 <script setup lang="ts">
+import MarkdownIt from 'markdown-it'
 import {usePostDetail} from "~/composables/usePost";
 import {Post, useThumbnail} from "~/composables/useCms";
 import {useGithubDetail, useGithubReadme} from "~/composables/useGithub";
 
-const { post } = await usePostDetail('VueJS')
+const route = useRoute()
+
+const { post } = await usePostDetail(route.params.slug as string)
 const resetPost = post as unknown as Post
-const resGithub = await useGithubDetail('vuejs/vue-next')
-const resGithubDetail = await useGithubReadme('vuejs/vue-next')
+const resGithub = await useGithubDetail(post.value.github as string)
+const resGithubDetail = await useGithubReadme(post.value.github as string)
 const content = atob((resGithubDetail.data.value as any).content)
+
+
+const markdownRenderer = new MarkdownIt()
+const html = markdownRenderer.render(content)
 </script>
 
 <template>
-<!--  <vue-markdown :source="content" />-->
   <div class="container mx-auto">
     <!--  基本信息  -->
     <div class="mb-10 mt-16 flex gap-8 justify-between items-center">
@@ -38,24 +44,7 @@ const content = atob((resGithubDetail.data.value as any).content)
 
     <!--  主体内容  -->
     <div class="flex justify-between gap-10 border-t pt-10">
-      <div class="m-format w-3/4 min-h-[50vh] border-r pr-10">
-        <h2>这里是标题</h2>
-        <p>这里是段落</p>
-        <h2>无序列表</h2>
-        <ul>
-          <li>无序列表</li>
-          <li>无序列表</li>
-          <li>无序列表</li>
-        </ul>
-        <h2>无序列表</h2>
-        <ol>
-          <li>无序列表</li>
-          <li>无序列表</li>
-          <li>无序列表</li>
-        </ol>
-        <h2>这里是链接</h2>
-        <p>这里是一个跳转到<a href="http://baidu.com">百度</a>的链接</p>
-      </div>
+      <div class="m-format w-3/4 min-h-[50vh] border-r pr-10" v-html="html"></div>
       <div class="w-1/4">这里是侧边</div>
     </div>
   </div>

@@ -55,6 +55,7 @@ export type Post = {
   tags: string
   term: RelationItem<Term>[]
   postmate: Postmate[]
+  github?: string
 }
 
 export type Postmate = {

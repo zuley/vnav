@@ -23,6 +23,8 @@
     "@pinia/nuxt": "^0.4.11",
     "@release-it/conventional-changelog": "^5.1.1",
     "git-cz": "^4.9.0",
+    "html-entities": "^2.4.0",
+    "markdown-it": "^13.0.1",
     "release-it": "^15.10.3"
   },
   "release-it": {
