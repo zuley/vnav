@@ -4,6 +4,8 @@ import {Post, useThumbnail} from "~/composables/useCms";
 import {useGithubDetail, useGithubReadme} from "~/composables/useGithub";
 import {TimeAgo} from "../../.nuxt/imports";
 import {markdownToHtml} from "~/composables/useMarkdown";
+import useShiki from "~/composables/useShiki";
+import {onMounted} from "#imports";
 
 const route = useRoute()
 
@@ -14,6 +16,16 @@ const resGithubDetail = await useGithubReadme(post.value.github as string)
 const content = atob((resGithubDetail.data.value as any).content)
 
 const html = markdownToHtml(content)
+
+
+onMounted(() => {
+  useShiki().then((highlighter) => {
+    const code = document.querySelectorAll('pre code')
+    code.forEach((block) => {
+      block.innerHTML = highlighter.codeToHtml(block.textContent || '', 'typescript')
+    })
+  })
+})
 </script>
 
 <template>

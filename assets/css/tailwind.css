@@ -5,7 +5,10 @@
 @tailwind utilities;
 
 .m-format {
-    @apply text-sm text-gray-600;
+  @apply text-sm text-gray-600;
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-black font-bold mb-2 mt-4;
+  }
   h2 {
     @apply text-xl text-black flex items-center mb-2 mt-4;
     &:after {
@@ -27,5 +30,14 @@
   }
   a {
     @apply mx-0.5 underline underline-offset-4 decoration-red-500 hover:text-red-500;
+  }
+  p {
+    @apply mb-4;
+  }
+  pre {
+    @apply my-4;
+  }
+  .shiki {
+    @apply p-4 rounded-lg;
   }
 }

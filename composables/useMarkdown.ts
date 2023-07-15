@@ -1,5 +1,7 @@
 import MarkdownIt from 'markdown-it'
+// @ts-ignore
 import attrs from 'markdown-it-attrs'
+// @ts-ignore
 import emoji from 'markdown-it-emoji'
 import {decode} from 'html-entities';
 
