@@ -6,6 +6,7 @@ import {TimeAgo} from "../../.nuxt/imports";
 import {markdownToHtml} from "~/composables/useMarkdown";
 import useShiki from "~/composables/useShiki";
 import {onMounted} from "#imports";
+import {toThirdPartyUrl} from "~/composables/useUtils";
 
 const route = useRoute()
 
@@ -66,8 +67,8 @@ onMounted(() => {
         </div>
       </div>
       <div class="flex flex-col gap-2">
-        <n-button block color="#ef4444" to="resGithub.homepage">前往官网查看</n-button>
-        <n-button block color="#ef4444" to="resGithub.html_url">前往Github查看</n-button>
+        <n-button block color="#ef4444" @click="toThirdPartyUrl(resGithub.data.value.homepage)">前往官网查看</n-button>
+        <n-button block color="#ef4444" @click="toThirdPartyUrl(resGithub.data.value.html_url)">前往Github查看</n-button>
       </div>
     </div>
 
