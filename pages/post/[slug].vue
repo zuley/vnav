@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import MarkdownIt from 'markdown-it'
 import {usePostDetail} from "~/composables/usePost";
 import {Post, useThumbnail} from "~/composables/useCms";
 import {useGithubDetail, useGithubReadme} from "~/composables/useGithub";
+import {TimeAgo} from "../../.nuxt/imports";
+import {markdownToHtml} from "~/composables/useMarkdown";
 
 const route = useRoute()
 
@@ -12,9 +13,7 @@ const resGithub = await useGithubDetail(post.value.github as string)
 const resGithubDetail = await useGithubReadme(post.value.github as string)
 const content = atob((resGithubDetail.data.value as any).content)
 
-
-const markdownRenderer = new MarkdownIt()
-const html = markdownRenderer.render(content)
+const html = markdownToHtml(content)
 </script>
 
 <template>
@@ -28,17 +27,35 @@ const html = markdownRenderer.render(content)
         <h1 class="text-4xl text-red-500">{{ resetPost.title }}</h1>
         <p class="text-slate-400">{{ resetPost.desc }}</p>
         <div class="flex gap-2 mt-4">
-          <div class="w-32" v-for="item in 4">
+          <div class="w-32">
             <div class="text-sm text-slate-500">Star</div>
             <div class="text-xl">
-              <n-number-animation :from="0" :to="12039" />
+              <n-number-animation :from="0" :to="resGithub.data.value.stargazers_count" />
+            </div>
+          </div>
+          <div class="w-32">
+            <div class="text-sm text-slate-500">Forks</div>
+            <div class="text-xl">
+              <n-number-animation :from="0" :to="resGithub.data.value.forks_count" />
+            </div>
+          </div>
+          <div class="w-40">
+            <div class="text-sm text-slate-500">Updated at</div>
+            <div class="text-xl">
+              {{ TimeAgo(new Date(resGithub.data.value.updated_at)) }}
+            </div>
+          </div>
+          <div class="w-32">
+            <div class="text-sm text-slate-500">License</div>
+            <div class="text-xl">
+              {{ resGithub.data.value.license.name }}
             </div>
           </div>
         </div>
       </div>
       <div class="flex flex-col gap-2">
-        <n-button block color="#ef4444">前往官网查看</n-button>
-        <n-button block color="#ef4444">前往Github查看</n-button>
+        <n-button block color="#ef4444" to="resGithub.homepage">前往官网查看</n-button>
+        <n-button block color="#ef4444" to="resGithub.html_url">前往Github查看</n-button>
       </div>
     </div>
 
