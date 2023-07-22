@@ -12,7 +12,7 @@ const units: UseTimeAgoUnit[] = [
 ]
 
 // 定义自定义时间单位
-const messages: UseTimeAgoMessages = {
+const messages = {
   justNow: '刚刚',
   past: (value: string) => {
     const unitName = value.slice(0, -1) // 移除单位的 "s"
@@ -41,7 +41,7 @@ const messages: UseTimeAgoMessages = {
     return `${value}后`.replace(unitName, unitMap[unitName])
   },
   invalid: '无效'
-}
+} as unknown as UseTimeAgoMessages;
 
 export const TimeAgo = function (from: Date) {
   return formatTimeAgo(new Date(), { units, messages })

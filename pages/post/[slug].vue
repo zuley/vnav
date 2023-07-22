@@ -73,9 +73,9 @@ onMounted(() => {
     </div>
 
     <!--  主体内容  -->
-    <div class="flex justify-between gap-10 border-t pt-10">
-      <div class="m-format w-3/4 min-h-[50vh] border-r pr-10" v-html="html"></div>
-      <div class="w-1/4">这里是侧边</div>
+    <div class="flex justify-between gap-10 border-t pt-10" v-if="html">
+      <div class="m-format min-h-[50vh] border-r pr-10" v-html="html"></div>
+<!--      <div class="w-1/4">这里是侧边</div>-->
     </div>
   </div>
 </template>
