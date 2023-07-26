@@ -55,6 +55,7 @@ export type Post = {
   tags: string
   term: RelationItem<Term>[]
   postmate: Postmate[]
+  github?: string
 }
 
 export type Postmate = {
@@ -73,7 +74,7 @@ type MyCollections = {
   postmate: Postmate
 }
 
-const cms = new Directus<MyCollections>('http://101.33.224.203:8055');
+const cms = new Directus<MyCollections>('https://admin.vnav.link');
 
 export const useOptionCms = () => {
   return cms.items('option')
