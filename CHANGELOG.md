@@ -1,5 +1,12 @@
 
 
+# [0.7.0](https://github.com/zuley/vnav/compare/0.6.0...0.7.0) (2023-08-19)
+
+
+### Features
+
+* 🎸 添加首页 seo ([4a1d65c](https://github.com/zuley/vnav/commit/4a1d65c408f54de9a017785d0c6fdac37265b14f))
+
 # [0.6.0](https://github.com/zuley/vnav/compare/0.5.0...0.6.0) (2023-07-08)
 
 
