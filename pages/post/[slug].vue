@@ -27,6 +27,15 @@ onMounted(() => {
     })
   })
 })
+// seo
+const opt = useOption()
+useHead({
+  title: `${resetPost.title} - ${opt.get('site-name')}-${opt.get('site-subtitle')}`,
+  meta: [
+    { name: 'description',  content: post.value.title },
+    { name: 'keywords', content: post.value.tags }
+  ]
+})
 </script>
 
 <template>
