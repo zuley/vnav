@@ -5,8 +5,7 @@ const props = defineProps<{
   slug?: string
 }>()
 
-const { data: res } = await useTerm()
-const list = res.value!.data
+const Terms = await useTerm()
 </script>
 
 <template>
@@ -14,7 +13,7 @@ const list = res.value!.data
     <nuxt-link class="mr-8" :class="{ 'text-red-700': !props.slug }" to="/">全部</nuxt-link>
     <NuxtLink
       class="mr-8"
-      v-for="item in list"
+      v-for="item in Terms"
       :class="{ 'text-red-700': item.slug === props.slug }"
       :to="`/term/${item.slug}`"
     >{{ item.name }}</NuxtLink>

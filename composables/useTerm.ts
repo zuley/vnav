@@ -1,6 +1,7 @@
 import {useFetch} from "#app";
+import {Term} from "~/composables/useCms";
 
 
 export default function () {
-  return useFetch('/api/term')
+  return useState<Term[]>('terms')
 }
