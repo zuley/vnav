@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {useFetch, useState} from "#app";
+
 // 初始化 - 设置选项
 const res = await useFetch('/api/option')
 useState('options', () => res.data.value!.data)

@@ -9,28 +9,31 @@ import {onMounted} from "#imports";
 import {toThirdPartyUrl} from "~/composables/useUtils";
 
 const route = useRoute()
-
+console.log('1-我进入了页面')
 const { post } = await usePostDetail(route.params.slug as string)
+console.log('2-我获取了文章信息', post)
 const resetPost = post as unknown as Post
-const resGithub = await useGithubDetail(post.value.github as string)
-const resGithubDetail = await useGithubReadme(post.value.github as string)
-const content = atob((resGithubDetail.data.value as any).content)
+// const resGithub = await useGithubDetail(post.value.github as string)
+// console.log('3-我获取了Gtihub仓库信息', resGithub)
+// const resGithubDetail = await useGithubReadme(post.value.github as string)
+// console.log('4-我获取了Github仓库详情信息', resGithubDetail)
+// const content = atob((resGithubDetail.data.value as any).content)
 
-const html = markdownToHtml(content)
-
+// const html = markdownToHtml(content)
+// console.log('5-全部数据处理完毕', html)
 
 onMounted(() => {
-  useShiki().then((highlighter) => {
-    const code = document.querySelectorAll('pre code')
-    code.forEach((block) => {
-      block.innerHTML = highlighter.codeToHtml(block.textContent || '', 'typescript')
-    })
-  })
+  // useShiki().then((highlighter) => {
+  //   const code = document.querySelectorAll('pre code')
+  //   code.forEach((block) => {
+  //     block.innerHTML = highlighter.codeToHtml(block.textContent || '', 'typescript')
+  //   })
+  // })
 })
 // seo
 const opt = useOption()
 useHead({
-  title: `${resetPost.title} - ${opt.get('site-name')}-${opt.get('site-subtitle')}`,
+  title: `${post.value.title} - ${opt.get('site-name')}-${opt.get('site-subtitle')}`,
   meta: [
     { name: 'description',  content: post.value.title },
     { name: 'keywords', content: post.value.tags }
@@ -52,38 +55,38 @@ useHead({
           <div class="w-32">
             <div class="text-sm text-slate-500">Star</div>
             <div class="text-xl">
-              <n-number-animation :from="0" :to="resGithub.data.value.stargazers_count" />
+<!--              <n-number-animation :from="0" :to="resGithub.data.value.stargazers_count" />-->
             </div>
           </div>
           <div class="w-32">
             <div class="text-sm text-slate-500">Forks</div>
             <div class="text-xl">
-              <n-number-animation :from="0" :to="resGithub.data.value.forks_count" />
+<!--              <n-number-animation :from="0" :to="resGithub.data.value.forks_count" />-->
             </div>
           </div>
           <div class="w-40">
             <div class="text-sm text-slate-500">Updated at</div>
             <div class="text-xl">
-              {{ TimeAgo(new Date(resGithub.data.value.updated_at)) }}
+<!--              {{ TimeAgo(new Date(resGithub.data.value.updated_at)) }}-->
             </div>
           </div>
           <div class="w-32">
             <div class="text-sm text-slate-500">License</div>
             <div class="text-xl">
-              {{ resGithub.data.value.license.name }}
+<!--              {{ resGithub.data.value.license.name }}-->
             </div>
           </div>
         </div>
       </div>
       <div class="flex flex-col gap-2">
-        <n-button block color="#ef4444" @click="toThirdPartyUrl(resGithub.data.value.homepage)">前往官网查看</n-button>
-        <n-button block color="#ef4444" @click="toThirdPartyUrl(resGithub.data.value.html_url)">前往Github查看</n-button>
+<!--        <n-button block color="#ef4444" @click="toThirdPartyUrl(resGithub.data.value.homepage)">前往官网查看</n-button>-->
+<!--        <n-button block color="#ef4444" @click="toThirdPartyUrl(resGithub.data.value.html_url)">前往Github查看</n-button>-->
       </div>
     </div>
 
     <!--  主体内容  -->
-    <div class="flex justify-between gap-10 border-t pt-10" v-if="html">
-      <div class="m-format min-h-[50vh] border-r pr-10" v-html="html"></div>
+    <div class="flex justify-between gap-10 border-t pt-10">
+<!--      <div class="m-format min-h-[50vh] border-r pr-10" v-html="html"></div>-->
 <!--      <div class="w-1/4">这里是侧边</div>-->
     </div>
   </div>

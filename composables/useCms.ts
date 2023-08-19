@@ -74,7 +74,7 @@ type MyCollections = {
   postmate: Postmate
 }
 
-const cms = new Directus<MyCollections>('https://admin.vnav.link');
+const cms = new Directus<MyCollections>('http://101.33.224.203:8055');
 
 export const useOptionCms = () => {
   return cms.items('option')
@@ -97,7 +97,7 @@ export const useTermCms = () => {
 }
 export default cms;
 
-const host = 'http://101.33.224.203:8055'
+const host = 'https://admin.vnav.link'
 export const useFileHost = () => host + '/assets/'
 
 type ThumbnailOption = {
