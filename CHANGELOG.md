@@ -1,5 +1,14 @@
 
 
+# [0.8.0](https://github.com/zuley/vnav/compare/0.6.0...0.8.0) (2023-08-19)
+
+
+### Features
+
+* 🎸 更新依赖 ([2cccc8f](https://github.com/zuley/vnav/commit/2cccc8ff3317294bf54196566887c5fb1e6eaa66))
+* 🎸 添加分类页面 seo ([722c444](https://github.com/zuley/vnav/commit/722c444d99adc2cd497e069c83083996cf652c25))
+* 🎸 添加首页 seo ([4a1d65c](https://github.com/zuley/vnav/commit/4a1d65c408f54de9a017785d0c6fdac37265b14f))
+
 # [0.6.0](https://github.com/zuley/vnav/compare/0.5.0...0.6.0) (2023-07-08)
 
 
