@@ -1,5 +1,13 @@
 
 
+# [0.9.0](https://github.com/zuley/vnav/compare/0.8.0...0.9.0) (2023-08-26)
+
+
+### Features
+
+* 🎸 渲染github仓库信息 ([354fb0d](https://github.com/zuley/vnav/commit/354fb0d081e3ce4329d313e6d5a833cb2a939641))
+* 🎸 详情页 seo ([8757a02](https://github.com/zuley/vnav/commit/8757a02586ae4e93b7e064f65892d343d169976c))
+
 # [0.8.0](https://github.com/zuley/vnav/compare/0.6.0...0.8.0) (2023-08-19)
 
 
