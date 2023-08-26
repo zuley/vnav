@@ -56,6 +56,10 @@ export type Post = {
   term: RelationItem<Term>[]
   postmate: Postmate[]
   github?: string
+  github_info?: {
+    info: any
+    readme: any
+  }
 }
 
 export type Postmate = {

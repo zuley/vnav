@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {usePostDetail} from "~/composables/usePost";
 import {Post, useThumbnail} from "~/composables/useCms";
-import {useGithubDetail, useGithubReadme} from "~/composables/useGithub";
 import {TimeAgo} from "../../.nuxt/imports";
 import {markdownToHtml} from "~/composables/useMarkdown";
 import useShiki from "~/composables/useShiki";
@@ -9,26 +8,25 @@ import {onMounted} from "#imports";
 import {toThirdPartyUrl} from "~/composables/useUtils";
 
 const route = useRoute()
-console.log('1-我进入了页面')
 const { post } = await usePostDetail(route.params.slug as string)
-console.log('2-我获取了文章信息', post)
 const resetPost = post as unknown as Post
-// const resGithub = await useGithubDetail(post.value.github as string)
-// console.log('3-我获取了Gtihub仓库信息', resGithub)
-// const resGithubDetail = await useGithubReadme(post.value.github as string)
-// console.log('4-我获取了Github仓库详情信息', resGithubDetail)
-// const content = atob((resGithubDetail.data.value as any).content)
+const resGithub = post.value.github_info
 
-// const html = markdownToHtml(content)
-// console.log('5-全部数据处理完毕', html)
+// 转换 markdown 为 html
+let html = null
+if (resGithub) {
+  const content = atob((resGithub.readme.content))
+  html = markdownToHtml(content)
+}
 
+// 页面挂载后渲染代码高亮
 onMounted(() => {
-  // useShiki().then((highlighter) => {
-  //   const code = document.querySelectorAll('pre code')
-  //   code.forEach((block) => {
-  //     block.innerHTML = highlighter.codeToHtml(block.textContent || '', 'typescript')
-  //   })
-  // })
+  useShiki().then((highlighter) => {
+    const code = document.querySelectorAll('pre code')
+    code.forEach((block) => {
+      block.innerHTML = highlighter.codeToHtml(block.textContent || '', 'typescript')
+    })
+  })
 })
 // seo
 const opt = useOption()
@@ -51,43 +49,43 @@ useHead({
       <div class="flex-1">
         <h1 class="text-4xl text-red-500">{{ resetPost.title }}</h1>
         <p class="text-slate-400">{{ resetPost.desc }}</p>
-        <div class="flex gap-2 mt-4">
+        <div class="flex gap-2 mt-4" v-if="resGithub">
           <div class="w-32">
             <div class="text-sm text-slate-500">Star</div>
             <div class="text-xl">
-<!--              <n-number-animation :from="0" :to="resGithub.data.value.stargazers_count" />-->
+              <n-number-animation :from="0" :to="resGithub.info.stargazers_count" />
             </div>
           </div>
           <div class="w-32">
             <div class="text-sm text-slate-500">Forks</div>
             <div class="text-xl">
-<!--              <n-number-animation :from="0" :to="resGithub.data.value.forks_count" />-->
+              <n-number-animation :from="0" :to="resGithub.info.forks_count" />
             </div>
           </div>
           <div class="w-40">
             <div class="text-sm text-slate-500">Updated at</div>
             <div class="text-xl">
-<!--              {{ TimeAgo(new Date(resGithub.data.value.updated_at)) }}-->
+              {{ TimeAgo(new Date(resGithub.info.updated_at)) }}
             </div>
           </div>
           <div class="w-32">
             <div class="text-sm text-slate-500">License</div>
             <div class="text-xl">
-<!--              {{ resGithub.data.value.license.name }}-->
+              {{ resGithub.info.license.name }}
             </div>
           </div>
         </div>
       </div>
-      <div class="flex flex-col gap-2">
-<!--        <n-button block color="#ef4444" @click="toThirdPartyUrl(resGithub.data.value.homepage)">前往官网查看</n-button>-->
-<!--        <n-button block color="#ef4444" @click="toThirdPartyUrl(resGithub.data.value.html_url)">前往Github查看</n-button>-->
+      <div class="flex flex-col gap-2" v-if="resGithub">
+        <n-button block color="#ef4444" @click="toThirdPartyUrl(resGithub.info.homepage)">前往官网查看</n-button>
+        <n-button block color="#ef4444" @click="toThirdPartyUrl(resGithub.info.html_url)">前往Github查看</n-button>
       </div>
     </div>
 
     <!--  主体内容  -->
     <div class="flex justify-between gap-10 border-t pt-10">
-<!--      <div class="m-format min-h-[50vh] border-r pr-10" v-html="html"></div>-->
-<!--      <div class="w-1/4">这里是侧边</div>-->
+      <div class="m-format min-h-[50vh] border-r pr-10" v-html="html"></div>
+      <div class="w-1/4">这里是侧边</div>
     </div>
   </div>
 </template>
