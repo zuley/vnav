@@ -1,6 +1,5 @@
 version: '3.7'
 
-# 使用 directus + mysql 构建本地开发环境
 services:
   directus:
     image: directus/directus:latest
@@ -11,16 +10,15 @@ services:
     environment:
       KEY: '255d861b-5ea1-5996-9aa3-922530ec40b1'
       SECRET: '6116487b-cda1-52c2-b5b5-c8022c45e263'
+    env_file: .env
 
-      DB_CLIENT: 'mysql'
-      DB_HOST: $DB_HOST
-      DB_PORT: $DB_PORT
-      DB_DATABASE: $DB_DATABASE
-      DB_USER: $DB_USER
-      DB_PASSWORD: $DB_PASSWORD
-
-      ADMIN_EMAIL: $ADMIN_EMAIL
-      ADMIN_PASSWORD: $ADMIN_PASSWORD
+  vnav:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: vnav
+    ports:
+      - "3000:3000"
 
 volumes:
   vnav_uploads:
