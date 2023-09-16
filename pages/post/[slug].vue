@@ -5,22 +5,18 @@ import {TimeAgo} from "../../.nuxt/imports";
 import {markdownToHtml} from "~/composables/useMarkdown";
 import useShiki from "~/composables/useShiki";
 import {onMounted} from "#imports";
-import {toThirdPartyUrl} from "~/composables/useUtils";
+import {base64Decode, toThirdPartyUrl} from "~/composables/useUtils";
 
 const route = useRoute()
 const { post } = await usePostDetail(route.params.slug as string)
 const resetPost = post as unknown as Post
 const resGithub = post.value.github_info
-console.log('resGithub', resGithub)
 
-// 转换 markdown 为 html
 let html = null
 if (resGithub) {
-  const content = atob((resGithub.readme.content))
-  html = markdownToHtml(content)
+  const content = base64Decode(resGithub.readme.content)
+  html = markdownToHtml(content as unknown as string)
 }
-
-console.log('html', html)
 
 // 页面挂载后渲染代码高亮
 onMounted(() => {
