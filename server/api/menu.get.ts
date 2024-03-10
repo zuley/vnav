@@ -1,4 +1,3 @@
-import {Menu} from "../../composables/useCms";
 import {useMenuCms} from "../../composables/useCms";
 export default defineEventHandler(async (e) => {
   try {

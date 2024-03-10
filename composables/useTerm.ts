@@ -1,5 +1,5 @@
 import {useFetch} from "#app";
-import {Term} from "~/composables/useCms";
+import type {Term} from "~/composables/useCms";
 
 
 export default function () {

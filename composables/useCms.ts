@@ -1,5 +1,5 @@
-import {Directus, ID, RelationItem} from '@directus/sdk';
-import {Text} from "domhandler";
+import type {ID, RelationItem} from '@directus/sdk';
+import {Directus} from '@directus/sdk';
 
 export type Option = {
   id: ID

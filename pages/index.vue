@@ -12,11 +12,18 @@ useHead({
 </script>
 
 <template>
-  <search />
-  <term-box />
-  <post-box />
+  <div class="flex">
+    <div class="m-baseSider w-60 p-4 leading-8 border-r border-slate-100 dark:border-slate-700">
+      <TermBox class="" />
+    </div>
+    <div class="flex-auto py-4 px-6">
+      <search />
+    </div>
+  </div>
 </template>
 
 <style scoped>
+.m-baseSider {
 
+}
 </style>

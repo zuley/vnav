@@ -9,15 +9,18 @@ const Terms = await useTerm()
 </script>
 
 <template>
-  <div class="container mx-auto pt-6 mb-4">
-    <nuxt-link class="mr-8" :class="{ 'text-red-700': !props.slug }" to="/">全部</nuxt-link>
-    <NuxtLink
-      class="mr-8"
-      v-for="item in Terms"
-      :class="{ 'text-red-700': item.slug === props.slug }"
-      :to="`/term/${item.slug}`"
-    >{{ item.name }}</NuxtLink>
-  </div>
+  <dl class="mb-4">
+    <dt class="text-slate-300 text-xs mb-1">分类</dt>
+    <dd>
+      <nuxt-link :class="{ 'text-red-700': !props.slug }" to="/">全部</nuxt-link>
+      <NuxtLink
+          class="flex"
+          v-for="item in Terms"
+          :class="{ 'text-red-700': item.slug === props.slug }"
+          :to="`/term/${item.slug}`"
+      >{{ item.name }}</NuxtLink>
+    </dd>
+  </dl>
 </template>
 
 <style scoped>
