@@ -2,11 +2,8 @@
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@huntersofbook/naive-ui-nuxt',
-    // 引入 Pinia
-    [
+  modules: [// 引入 Pinia
+  "@nuxt/ui", '@nuxtjs/tailwindcss', [
       "@pinia/nuxt",
       {
         autoImports: [
@@ -15,6 +12,5 @@ export default defineNuxtConfig({
           "storeToRefs"
         ],
       },
-    ]
-  ]
-} as any)
+    ], "@nuxtjs/i18n", "@pinia-plugin-persistedstate/nuxt"]
+})

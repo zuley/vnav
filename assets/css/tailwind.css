@@ -5,12 +5,12 @@
 @tailwind utilities;
 
 .m-format {
-  @apply text-sm text-gray-600;
+  @apply text-lg text-zinc-400;
   h1, h2, h3, h4, h5, h6 {
-    @apply text-black font-bold mb-2 mt-4;
+    @apply font-bold mb-2 mt-4;
   }
   h2 {
-    @apply text-xl text-black flex items-center mb-2 mt-4;
+    @apply text-xl text-zinc-50 flex items-center mb-2 mt-4;
     &:after {
       @apply flex-1 ml-4 border-b border-gray-200 border-dashed;
       content: '';
@@ -19,13 +19,13 @@
   ul {
     @apply list-disc list-inside;
     li {
-      @apply text-gray-700 mb-2;
+      @apply mb-2;
     }
   }
   ol {
     @apply list-decimal list-inside;
     li {
-      @apply text-gray-700 mb-2;
+      @apply mb-2;
     }
   }
   a {

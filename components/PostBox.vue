@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import usePost from "~/composables/usePost";
-import {Post, useThumbnail} from "~/composables/useCms";
+import type { Post } from "~/composables/useCms"
+import {useThumbnail} from "~/composables/useCms";
 
 const porps = defineProps<{
   term?: string
+  termName?: string
 }>()
 
 const route = useRoute()
@@ -19,32 +21,25 @@ watch(() => route.query, () => {
 
 <template>
   <template v-if="list.length > 0">
+    <h2 class="mb-4 text-zinc-500">{{ termName }}</h2>
     <!-- 文章 -->
-    <div class="container mx-auto grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 gap-4">
-      <div class="bg-white rounded-lg p-3 text-center" v-for="item in (list as Post[])" :key="item.id">
-        <nuxt-link :to="`/post/${item.slug}`" class="block h-0 pb-[50%] bg-no-repeat bg-center bg-contain hover:rotate-2 transition-all" :style="{ backgroundImage: `url(${useThumbnail(item.cover.id)})` }"></nuxt-link>
-        <h2 class="text-xl leading-10">
-          <nuxt-link to="/">{{ item.title }}</nuxt-link>
-        </h2>
-        <p class="text-gray-400 text-xs h-8">{{ item.desc }}</p>
+    <div class="grid grid-cols-5 gap-4 mb-10">
+      <div
+        class="bg-zinc-800 hover:bg-zinc-700 duration-200 rounded-md"
+        v-for="item in (list as Post[])" :key="item.id"
+      >
+        <u-tooltip class="block text-wrap" :text="item.desc">
+          <nuxt-link class="flex items-center p-3" :to="`/post/${item.slug}`" :title="item.desc" target="_blank">
+            <div class="w-10 h-10 overflow-hidden bg-zinc-200 mr-3"><img :src="useThumbnail(item.cover.id)" alt=""></div>
+            <div class="flex-1 overflow-hidden">
+              <h3 class="text-zinc-200 mb-1">{{ item.title }}</h3>
+              <p class="text-xs text-zinc-500 truncate overflow-ellipsis">{{ item.desc }}</p>
+            </div>
+          </nuxt-link>
+        </u-tooltip>
       </div>
     </div>
-    <!-- 分页 -->
-    <div class="container mx-auto flex justify-center py-10">
-      <n-pagination
-        :page-count="allPages"
-        v-model:page="page"
-      >
-        <template #prev>
-          上一页
-        </template>
-        <template #next>
-          下一页
-        </template>
-      </n-pagination>
-    </div>
   </template>
-  <n-empty class="pt-20" size="large" description="这什么都没有啊" v-else />
 </template>
 
 <style scoped>

@@ -13,9 +13,10 @@ useHead({
 </script>
 
 <template>
-  <search />
-  <term-box :slug="slug as string" />
-  <post-box :term="slug as string" />
+  <search :name="actTerm.name" :desc="actTerm.desc" />
+  <div class="pt-10">
+    <post-box :term="slug as string" />
+  </div>
 </template>
 
 <style scoped>

@@ -12,14 +12,16 @@
   },
   "devDependencies": {
     "@directus/sdk": "^10.3.5",
+    "@nuxt/ui": "^2.14.2",
+    "@nuxtjs/i18n": "^8.2.0",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
     "@types/markdown-it": "^12.2.3",
-    "@types/node": "^18.19.21",
+    "@types/node": "^18.19.24",
     "nuxt": "^3.10.3",
     "nuxt-directus": "^5.6.0"
   },
   "dependencies": {
     "@css-render/vue3-ssr": "^0.15.12",
-    "@huntersofbook/naive-ui-nuxt": "^1.2.0",
     "@nuxtjs/tailwindcss": "^6.11.4",
     "@pinia/nuxt": "^0.4.11",
     "@release-it/conventional-changelog": "^5.1.1",

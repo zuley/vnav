@@ -1,4 +1,5 @@
 import {useFetch} from "#app";
+import type {Post} from "~/composables/useCms";
 
 
 export default async function (params: {
