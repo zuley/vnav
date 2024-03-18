@@ -5,7 +5,7 @@ const opt = useOption()
 </script>
 
 <template>
-<div class="m-baseHeader p-3 border-b border-slate-100 dark:border-slate-700  flex justify-between items-center">
+  <div class="m-baseHeader p-3 border-b border-slate-700 flex justify-between items-center">
   <div class="logo">
     <nuxt-link to="/" :title="opt.get('site-name')">
       <img class="h-10" :src="opt.get('site-logo')" alt="">
