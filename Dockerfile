@@ -1,4 +1,4 @@
-FROM node:18.17.0
+FROM node:19.2.0
 
 # 设置工作目录
 WORKDIR /app

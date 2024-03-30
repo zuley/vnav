@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import usePost from "~/composables/usePost";
-import type { Post } from "~/composables/useCms"
+import type {Post} from "~/composables/useCms"
 import {useThumbnail} from "~/composables/useCms";
 
 const porps = defineProps<{
@@ -30,7 +30,7 @@ watch(() => route.query, () => {
       >
         <u-tooltip class="block text-wrap" :text="item.desc">
           <nuxt-link class="flex items-center p-3" :to="`/post/${item.slug}`" :title="item.desc" target="_blank">
-            <div class="w-10 h-10 overflow-hidden bg-zinc-200 mr-3"><img :src="useThumbnail(item.cover.id)" alt=""></div>
+            <div class="w-10 h-10 overflow-hidden mr-3"><img :src="useThumbnail(item.cover.id)" alt=""></div>
             <div class="flex-1 overflow-hidden">
               <h3 class="text-zinc-200 mb-1">{{ item.title }}</h3>
               <p class="text-xs text-zinc-500 truncate overflow-ellipsis">{{ item.desc }}</p>
