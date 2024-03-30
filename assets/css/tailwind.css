@@ -32,10 +32,10 @@
     @apply mx-0.5 underline underline-offset-4 decoration-red-500 hover:text-red-500;
   }
   img {
-    @apply inline;
+    @apply block max-w-3xl mx-auto;
   }
   p {
-    @apply mb-4;
+    @apply mb-6;
   }
   pre {
     @apply my-4;

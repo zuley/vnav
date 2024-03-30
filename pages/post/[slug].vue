@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import {usePostDetail} from "~/composables/usePost";
-import type { Post } from "~/composables/useCms";
+import type {Post} from "~/composables/useCms";
 import {useThumbnail} from "~/composables/useCms";
 import {TimeAgo} from "../../.nuxt/imports";
-import {markdownToHtml} from "~/composables/useMarkdown";
 import useShiki from "~/composables/useShiki";
 import {onMounted} from "#imports";
-import {base64Decode, toThirdPartyUrl} from "~/composables/useUtils";
+import {toThirdPartyUrl} from "~/composables/useUtils";
 
 const route = useRoute()
 const { post } = await usePostDetail(route.params.slug as string)
@@ -66,8 +65,8 @@ useHead({
     </div>
   </div>
   <!--  主体内容  -->
-  <UDivider label="Getting Started" />
-  <div class="m-format text-zinc-200 pt-5" v-html="resetPost.content_artivle"></div>
+  <UDivider label="Getting Started Info"/>
+  <div class="m-format text-zinc-200 pt-5" v-html="resetPost.content_article"></div>
 </template>
 
 <style scoped>
